@@ -27,11 +27,15 @@ namespace JeffJi
         private void FixedUpdate()
         {
             float delta = Time.fixedDeltaTime;
-
             if (cameraHandler != null)
             {
+
                 cameraHandler.FollowTarget(delta);
                 cameraHandler.HandleCameraRotation(delta, mouseX, mouseY);
+            }
+            else
+            {
+                cameraHandler = CameraHandler.singleton;
             }
         }
         public void OnEnable()
